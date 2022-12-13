@@ -10,7 +10,7 @@
     payout: 1,
   };
 
-  $: document.title = `ETH ${capitalize(faucetInfo.network)} Faucet`;
+  $: document.title = `ETHO HC ${capitalize(faucetInfo.network)} Faucet`;
 
   onMount(async () => {
     const res = await fetch('/api/info');
@@ -60,11 +60,30 @@
       <nav class="navbar">
         <div class="container">
           <div class="navbar-brand">
+            <a class="navbar-item" href="https://ethoprotocol.com">
+              <span class="icon">
+                <i class="fa fa-home" />
+              </span>
+              <span><b>Etho Protocol</b></span>
+            </a>
+
             <a class="navbar-item" href=".">
               <span class="icon">
                 <i class="fa fa-bath" />
               </span>
-              <span><b>ETH Faucet</b></span>
+              <span><b>ETHO HC Faucet</b></span>
+            </a>
+            <a class="navbar-item" href="https://testnetstats.ethoprotocol.com">
+              <span class="icon">
+                <i class="fa fa-stats" />
+              </span>
+              <span><b>Etho HC Stats</b></span>
+            </a>
+            <a class="navbar-item" href="https://testnetexplorer.ethoprotocol.com">
+              <span class="icon">
+                <i class="fa fa-calc" />
+              </span>
+              <span><b>Etho HC Explorer</b></span>
             </a>
           </div>
           <div id="navbarMenu" class="navbar-menu">
@@ -72,12 +91,12 @@
               <span class="navbar-item">
                 <a
                   class="button is-white is-outlined"
-                  href="https://github.com/chainflag/eth-faucet"
+                  href="https://discord.gg/MFn9Tmz"
                 >
                   <span class="icon">
-                    <i class="fa fa-github" />
+                    <i class="fa fa-return" />
                   </span>
-                  <span>View Source</span>
+                  <span>Join our Discord</span>
                 </a>
               </span>
             </div>
@@ -90,7 +109,7 @@
       <div class="container has-text-centered">
         <div class="column is-6 is-offset-3">
           <h1 class="title">
-            Receive {faucetInfo.payout} ETH per request
+            Receive {faucetInfo.payout} ETHO HC per request
           </h1>
           <h2 class="subtitle">
             Serving from {faucetInfo.account}
@@ -129,6 +148,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+
   }
   .hero .subtitle {
     padding: 3rem 0;
@@ -136,5 +156,10 @@
   }
   .box {
     border-radius: 19px;
+  }
+  button.is-primary {
+      background-color: #7a022a;
+      border-color: transparent;
+      color: #fff;
   }
 </style>
