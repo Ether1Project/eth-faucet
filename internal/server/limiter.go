@@ -48,7 +48,7 @@ func (l *Limiter) ServeHTTP(w http.ResponseWriter, r *http.Request, next http.Ha
 		return
 	}
 
-	clintIP := getClientIPFromRequest(l.proxyCount, r)
+	clintIP := GetRealIP(r)
 	l.mutex.Lock()
 	if l.limitByKey(w, address) || l.limitByKey(w, clintIP) {
 		l.mutex.Unlock()
@@ -68,6 +68,17 @@ func (l *Limiter) ServeHTTP(w http.ResponseWriter, r *http.Request, next http.Ha
 		"address":  address,
 		"clientIP": clintIP,
 	}).Info("Maximum request limit has been reached")
+}
+
+func GetRealIP(r *http.Request) string {
+    IPAddress := r.Header.Get("X-Real-IP")
+    if IPAddress == "" {
+        IPAddress = r.Header.Get("X-Forwarder-For")
+    }
+    if IPAddress == "" {
+        IPAddress = r.RemoteAddr
+    }
+    return IPAddress
 }
 
 func (l *Limiter) limitByKey(w http.ResponseWriter, key string) bool {
