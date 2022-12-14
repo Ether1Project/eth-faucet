@@ -73,15 +73,21 @@
               </span>
               <span><b>ETHO HC Faucet</b></span>
             </a>
+            <a class="navbar-item" href="https://ethoprotocol.com/2022/12/11/etho-hc-test-network-launched/">
+              <span class="icon">
+                <i class="fa fa-books" />
+              </span>
+              <span><b>How to setup ETHO HC in Metamask</b></span>
+            </a>
             <a class="navbar-item" href="https://testnetstats.ethoprotocol.com">
               <span class="icon">
-                <i class="fa fa-stats" />
+                <i class="fa fa-browser" />
               </span>
               <span><b>Etho HC Stats</b></span>
             </a>
             <a class="navbar-item" href="https://testnetexplorer.ethoprotocol.com">
               <span class="icon">
-                <i class="fa fa-calc" />
+                <i class="fa fa-signal-strong" />
               </span>
               <span><b>Etho HC Explorer</b></span>
             </a>
@@ -94,7 +100,7 @@
                   href="https://discord.gg/MFn9Tmz"
                 >
                   <span class="icon">
-                    <i class="fa fa-return" />
+                    <i class="fa fa-comments" />
                   </span>
                   <span>Join our Discord</span>
                 </a>
