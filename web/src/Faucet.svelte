@@ -10,7 +10,7 @@
     payout: 1,
   };
 
-  $: document.title = `ETHO HC ${capitalize(faucetInfo.network)} Faucet`;
+  $: document.title = `ETHO HC Faucet`;
 
   onMount(async () => {
     const res = await fetch('/api/info');
@@ -75,19 +75,19 @@
             </a>
             <a class="navbar-item" href="https://ethoprotocol.com/2022/12/11/etho-hc-test-network-launched/">
               <span class="icon">
-                <i class="fa fa-books" />
+                <i class="fa fa-arrow-circle-right" />
               </span>
               <span><b>How to setup ETHO HC in Metamask</b></span>
             </a>
             <a class="navbar-item" href="https://testnetstats.ethoprotocol.com">
               <span class="icon">
-                <i class="fa fa-browser" />
+                <i class="fa fa-eye" />
               </span>
               <span><b>Etho HC Stats</b></span>
             </a>
-            <a class="navbar-item" href="https://testnetexplorer.ethoprotocol.com">
+            <a class="navbar-item" href="https://testnetexplorer2.ethoprotocol.com">
               <span class="icon">
-                <i class="fa fa-signal-strong" />
+                <i class="fa fa-at" />
               </span>
               <span><b>Etho HC Explorer</b></span>
             </a>
@@ -149,7 +149,7 @@
 <style>
   .hero.is-info {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('/background.jpg') no-repeat center center fixed;
+      url('/background.jpg') no-repeat center left fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -163,9 +163,5 @@
   .box {
     border-radius: 19px;
   }
-  button.is-primary {
-      background-color: #7a022a;
-      border-color: transparent;
-      color: #fff;
-  }
+
 </style>
