@@ -25,7 +25,7 @@ var (
 	queueCapFlag = flag.Int("queuecap", 100, "Maximum transactions waiting to be sent")
 	versionFlag  = flag.Bool("version", false, "Print version number")
 
-	payoutFlag   = flag.Int("faucet.amount", 1, "Number of Ethers to transfer per user request")
+	payoutFlag   = flag.Int("faucet.amount", 100, "Number/100 of Ethers to transfer per user request. 100 would equal one Ether")
 	intervalFlag = flag.Int("faucet.minutes", 1440, "Number of minutes to wait between funding rounds")
 	netnameFlag  = flag.String("faucet.name", "testnet", "Network name to display on the frontend")
 
