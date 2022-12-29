@@ -13,7 +13,8 @@ func IsValidAddress(address string, checksummed bool) bool {
 	return !checksummed || common.HexToAddress(address).Hex() == address
 }
 
+// Amount is 1/100 ETH, ETHO or so
 func EtherToWei(amount int64) *big.Int {
-	ether := new(big.Int).Exp(big.NewInt(10), big.NewInt(18), nil)
+	ether := new(big.Int).Exp(big.NewInt(10), big.NewInt(16), nil)
 	return new(big.Int).Mul(big.NewInt(amount), ether)
 }

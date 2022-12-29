@@ -7,7 +7,17 @@
   let faucetInfo = {
     account: '0x0000000000000000000000000000000000000000',
     network: 'testnet',
+    bgimg: '',
     payout: 1,
+    faucetstr: "",
+    faucetstr1: "",
+    faucetlnk1: "",
+    faucetstr2: "",
+    faucetlnk2: "",
+    faucetstr3: "",
+    faucetlnk3: "",
+    faucetstr4: "",
+
   };
 
   $: document.title = `ETHO HC Faucet`;
@@ -15,6 +25,39 @@
   onMount(async () => {
     const res = await fetch('/api/info');
     faucetInfo = await res.json();
+    faucetInfo.payout=faucetInfo.payout/100;
+    // We load different backgrounds depending on the network spec
+    switch(faucetInfo.network) {
+        case 'etho':
+            faucetInfo.bgimg='background_etho.jpg';
+            faucetInfo.faucetstr="ETHO Faucet";
+            faucetInfo.faucetstr1="How to setup ETHO in Metamask";
+            faucetInfo.faucetlnk1="https://docs.ethoprotocol.com/install-metamask"
+            faucetInfo.faucetstr2="Etho Stats";
+            faucetInfo.faucetlnk2="https://stats.ethoprotocol.com"
+            faucetInfo.faucetstr3="Etho Explorer";
+            faucetInfo.faucetlnk3="https://explorer.ethoprotocol.com";
+            faucetInfo.faucetstr4="ETHO per request";
+            document.title = `ETHO Faucet`;
+            break;
+        case 'ethotestnet':
+            faucetInfo.bgimg='background_ethotestnet.jpg';
+            faucetInfo.faucetstr="ETHO HC Faucet";
+            faucetInfo.faucetstr1="How to setup ETHO HC in Metamask";
+            faucetInfo.faucetlnk1="https://ethoprotocol.com/2022/12/11/etho-hc-test-network-launched";
+            faucetInfo.faucetstr2="Etho HC Stats";
+            faucetInfo.faucetlnk2="https://testnetstats.ethoprotocol.com"
+            faucetInfo.faucetstr3="Etho HC Explorer";
+            faucetInfo.faucetlnk3="https://testnetexplorer.ethoprotocol.com";
+            faucetInfo.faucetstr4="ETHO HC per request";
+            document.title = `ETHO HC Faucet`;
+            break;
+        default:
+            faucetInfo.bgimg='background.jpg';
+            document.title = `Ethereum Faucet`;
+            break;
+        }
+        console.log(faucetInfo);
   });
 
   setToast({
@@ -22,6 +65,7 @@
     dismissible: true,
     pauseOnHover: true,
     closeOnClick: false,
+    duration: 5000,
     animate: { in: 'fadeIn', out: 'fadeOut' },
   });
 
@@ -55,7 +99,7 @@
 </script>
 
 <main>
-  <section class="hero is-info is-fullheight">
+  <section class="hero is-info is-fullheight" style="background-image: url({faucetInfo.bgimg})">
     <div class="hero-head">
       <nav class="navbar">
         <div class="container">
@@ -71,25 +115,25 @@
               <span class="icon">
                 <i class="fa fa-bath" />
               </span>
-              <span><b>ETHO HC Faucet</b></span>
+              <span><b>{faucetInfo.faucetstr}</b></span>
             </a>
-            <a class="navbar-item" href="https://ethoprotocol.com/2022/12/11/etho-hc-test-network-launched/">
+            <a class="navbar-item" href={faucetInfo.faucetlnk1}>
               <span class="icon">
                 <i class="fa fa-arrow-circle-right" />
               </span>
-              <span><b>How to setup ETHO HC in Metamask</b></span>
+              <span><b>{faucetInfo.faucetstr1}</b></span>
             </a>
-            <a class="navbar-item" href="https://testnetstats.ethoprotocol.com">
+            <a class="navbar-item" href={faucetInfo.faucetlnk2}>
               <span class="icon">
                 <i class="fa fa-eye" />
               </span>
-              <span><b>Etho HC Stats</b></span>
+              <span><b>{faucetInfo.faucetstr2}</b></span>
             </a>
-            <a class="navbar-item" href="https://testnetexplorer2.ethoprotocol.com">
+            <a class="navbar-item" href={faucetInfo.faucetlnk3}>
               <span class="icon">
                 <i class="fa fa-at" />
               </span>
-              <span><b>Etho HC Explorer</b></span>
+              <span><b>{faucetInfo.faucetstr3}r</b></span>
             </a>
           </div>
           <div id="navbarMenu" class="navbar-menu">
@@ -115,7 +159,7 @@
       <div class="container has-text-centered">
         <div class="column is-6 is-offset-3">
           <h1 class="title">
-            Receive {faucetInfo.payout} ETHO HC per request
+            Receive {faucetInfo.payout} {faucetInfo.faucetstr4}
           </h1>
           <h2 class="subtitle">
             Serving from {faucetInfo.account}
@@ -148,8 +192,7 @@
 
 <style>
   .hero.is-info {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('/background.jpg') no-repeat center left fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
