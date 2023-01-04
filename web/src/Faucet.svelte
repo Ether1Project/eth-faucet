@@ -104,37 +104,6 @@
       <nav class="navbar">
         <div class="container">
           <div class="navbar-brand">
-            <a class="navbar-item" href="https://ethoprotocol.com">
-              <span class="icon">
-                <i class="fa fa-home" />
-              </span>
-              <span><b>Etho Protocol</b></span>
-            </a>
-
-            <a class="navbar-item" href=".">
-              <span class="icon">
-                <i class="fa fa-bath" />
-              </span>
-              <span><b>{faucetInfo.faucetstr}</b></span>
-            </a>
-            <a class="navbar-item" href={faucetInfo.faucetlnk1}>
-              <span class="icon">
-                <i class="fa fa-arrow-circle-right" />
-              </span>
-              <span><b>{faucetInfo.faucetstr1}</b></span>
-            </a>
-            <a class="navbar-item" href={faucetInfo.faucetlnk2}>
-              <span class="icon">
-                <i class="fa fa-eye" />
-              </span>
-              <span><b>{faucetInfo.faucetstr2}</b></span>
-            </a>
-            <a class="navbar-item" href={faucetInfo.faucetlnk3}>
-              <span class="icon">
-                <i class="fa fa-at" />
-              </span>
-              <span><b>{faucetInfo.faucetstr3}r</b></span>
-            </a>
           </div>
           <div id="navbarMenu" class="navbar-menu">
             <div class="navbar-end">
@@ -187,7 +156,9 @@
         </div>
       </div>
     </div>
+
   </section>
+
 </main>
 
 <style>
