@@ -17,7 +17,7 @@
     <script src='https://cdn.jsdelivr.net/gh/Ether1Project/ethocomponents@main/component.js' crossorigin="anonymous"></script>
 
     <script>let ethocomponent_menu='' +
-            '<li class="nav-item"><a class="nav-link" href="https://docs.ethoprotocol.com/install-metamask><i class="fa fa-home"></i>How to setup ETHO in Metamask</a></li>' +
+            '<li class="nav-item"><a class="nav-link" href="https://docs.ethoprotocol.com/install-metamask" target"_blank"><i class="fa fa-home"></i>How to setup ETHO in Metamask</a></li>' +
             '';
     </script>
 
